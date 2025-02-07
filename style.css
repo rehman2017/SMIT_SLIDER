@@ -1,0 +1,85 @@
+/* Universal setting */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Setting */
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background-color: #ffffff;
+}
+
+/* Main Container */
+.main {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 10px 10px 10px rgba(223, 164, 4, 0.1);
+}
+
+.img-container {
+  display: flex;
+  width: 300%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Hide radio inputs */
+input[type="radio"] {
+  display: none;
+}
+
+/* Slide Logic */
+#btn-1:checked ~ .img-container {
+  transform: translateX(0);
+}
+
+#btn-2:checked ~ .img-container {
+  transform: translateX(-33.33%);
+}
+
+#btn-3:checked ~ .img-container {
+  transform: translateX(-66.66%);
+}
+
+/* Buttons Container */
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.btn-container label {
+  width: 12px;
+  height: 12px;
+  background-color: green;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+/* Active button color */
+#btn-1:checked ~ .btn-container label[for="btn-1"],
+#btn-2:checked ~ .btn-container label[for="btn-2"],
+#btn-3:checked ~ .btn-container label[for="btn-3"] {
+  background-color: orange;
+  width: 15px;
+  height: 15px;
+}
